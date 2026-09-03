@@ -1,0 +1,16 @@
+{
+  "name": "Feven' Prints — Photo Prints, Albums & Gifts · Addis Ababa",
+  "short_name": "Feven Prints",
+  "description": "Beautiful photo prints, albums, canvases and greeting cards — made locally in Addis Ababa.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FCF9F5",
+  "theme_color": "#FCF9F5",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feven' Prints — Photo Prints, Albums & Gifts · Addis Ababa | ፌቨን ፕሪንትስ</title>
 <meta name="description" content="Feven' Prints turns your moments into keepsakes. Professional photo prints, framed canvases, photo books & greeting cards — made locally in Addis Ababa.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" id="metaTC" content="#FCF9F5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Feven Prints">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Noto+Serif+Ethiopic:wght@400;500;600&display=swap" rel="stylesheet">
@@ -692,6 +699,14 @@ function setSkin(k){
   document.documentElement.setAttribute('data-skin', k);
   document.querySelectorAll('.skin-btn').forEach(b=>b.classList.toggle('active', b.getAttribute('data-skin')===k));
   try{ localStorage.setItem('feven_skin', k); }catch(e){}
+  /* sync browser chrome + status bar to active skin */
+  var c={cream:'#FCF9F5',noir:'#0D0C0A',white:'#FFFFFF'}[k]||'#FCF9F5';
+  var tc=document.getElementById('metaTC');
+  if(tc) tc.setAttribute('content', c);
+  try{
+    var m=document.querySelector('meta[name="theme-color"]');
+    if(m) m.setAttribute('content', c);
+  }catch(e){}
 }
 /* restore saved skin */
 (function(){ let k='cream'; try{ k=localStorage.getItem('feven_skin')||'cream'; }catch(e){} if(!['cream','noir','white'].includes(k)) k='cream'; setSkin(k); })();
